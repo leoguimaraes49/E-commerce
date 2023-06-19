@@ -13,9 +13,13 @@ Este é um projeto de exemplo de um sistema básico de comércio eletrônico des
 2. Execute o seguinte script SQL para criar a tabela de produtos:
 
 CREATE TABLE products (
+
     id VARCHAR(20) PRIMARY KEY,
+    
     name VARCHAR(100) NOT NULL,
+    
     price DECIMAL(10,2) NOT NULL,
+    
     quantity INT NOT NULL
 );
 
@@ -55,8 +59,13 @@ Caso não tenha:
 
 # Funcionalidades
 Adicionar um produto ao estoque.
+
 Adicionar um produto ao carrinho de compras.
+
 Remover um produto do carrinho de compras.
+
 Exibir os produtos em estoque.
+
 Exibir os produtos no carrinho de compras.
+
 Confirmar uma venda.
