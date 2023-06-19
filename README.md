@@ -43,9 +43,13 @@ Caso não tenha:
 
 # Executando o Projeto
 1.Clone o repositório para o seu ambiente local.
+
 2.Abra o projeto em sua IDE Java de preferência.
+
 3.Certifique-se de que o servidor MySQL esteja em execução.
+
 4.Execute a classe Main para iniciar o programa.
+
 5.Siga as instruções no console para interagir com o sistema de comércio eletrônico.
 
 # Funcionalidades
