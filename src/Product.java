@@ -1,7 +1,7 @@
 public class Product {
-    private String id;
-    private String name;
-    private double price;
+    private final String id;
+    private final String name;
+    private final double price;
     private int quantity;
 
     public Product(String id, String name, double price, int quantity) {
@@ -27,7 +27,4 @@ public class Product {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }

@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class ProductManager {
-    private Connection connection;
+    private final Connection connection;
 
     public ProductManager(Connection connection) {
         this.connection = connection;

@@ -28,50 +28,36 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine(); // Consume newline left-over
 
-                switch(option) {
-                    case 1:
-                        System.out.println("Enter product details (id, name, price, quantity):");
-                        String[] details = scanner.nextLine().split(",");
-                        Product product = new Product(details[0], details[1], Double.parseDouble(details[2]), Integer.parseInt(details[3]));
-                        productManager.addProduct(product);
-                        System.out.println("Product added to stock successfully");
-                        break;
-
-                    case 2:
-                        System.out.println("Enter product ID and quantity: (use \" , \" to separate id from quantity)");
-                        String[] cartDetails = scanner.nextLine().split(",");
-                        shoppingCart.addProduct(productManager.getProduct(cartDetails[0]), Integer.parseInt(cartDetails[1]));
-                        System.out.println("Product added to cart successfully");
-                        System.out.println("Cart total value is now: " + shoppingCart.calculateTotal());
-                        break;
-
-                    case 3:
-                        System.out.println("Enter product ID and quantity to remove from cart:");
-                        String[] removeDetails = scanner.nextLine().split(",");
-                        shoppingCart.removeProduct(productManager.getProduct(removeDetails[0]), Integer.parseInt(removeDetails[1]));
-                        System.out.println("Product removed from cart successfully");
-                        System.out.println("Cart total value is now: " + shoppingCart.calculateTotal());
-                        break;
-
-                    case 4:
-                        productManager.showProducts();
-                        break;
-
-                    case 5:
-                        shoppingCart.showCart();
-                        break;
-
-                    case 6:
-                        saleManager.confirmSale();
-                        System.out.println("Sale confirmed successfully");
-                        break;
-
-                    case 0:
-                        run = false;
-                        break;
-
-                    default:
-                        System.out.println("Invalid option. Please try again.");
+                switch (option) {
+                    case 1 -> {
+                        System.out.println ("Enter product details (id,name,price,quantity):");
+                        String[] details = scanner.nextLine ().split (",");
+                        Product product = new Product (details[0], details[1], Double.parseDouble (details[2]), Integer.parseInt (details[3]));
+                        productManager.addProduct (product);
+                        System.out.println ("Product added to stock successfully");
+                    }
+                    case 2 -> {
+                        System.out.println ("Enter product ID and quantity: (use \" , \" to separate id from quantity)");
+                        String[] cartDetails = scanner.nextLine ().split (",");
+                        shoppingCart.addProduct (productManager.getProduct (cartDetails[0]), Integer.parseInt (cartDetails[1]));
+                        System.out.println ("Product added to cart successfully");
+                        System.out.println ("Cart total value is now: " + shoppingCart.calculateTotal ());
+                    }
+                    case 3 -> {
+                        System.out.println ("Enter product ID and quantity to remove from cart:(use \" , \" to separate id from quantity)");
+                        String[] removeDetails = scanner.nextLine ().split (",");
+                        shoppingCart.removeProduct (productManager.getProduct (removeDetails[0]), Integer.parseInt (removeDetails[1]));
+                        System.out.println ("Product removed from cart successfully");
+                        System.out.println ("Cart total value is now: " + shoppingCart.calculateTotal ());
+                    }
+                    case 4 -> productManager.showProducts ();
+                    case 5 -> shoppingCart.showCart ();
+                    case 6 -> {
+                        saleManager.confirmSale ();
+                        System.out.println ("Sale confirmed successfully");
+                    }
+                    case 0 -> run = false;
+                    default -> System.out.println ("Invalid option. Please try again.");
                 }
             }
 
