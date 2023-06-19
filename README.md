@@ -30,7 +30,7 @@ As credenciais de login do banco de dados são necessárias para estabelecer uma
 1. Abra o arquivo `Main.java` localizado no diretório `src` do projeto.
 2. Procure o seguinte trecho no código:
    ```java
-   javaConnection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_db", "user", "password");```
+   javaConnection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_db", "user", "password");
 4. Troque o "user" pelo nome de usuário do seu banco de dados e o "password" pela sua senha.
 5. Salve as alterações no arquivo `Main.java`.
 
