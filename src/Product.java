@@ -1,4 +1,4 @@
-class Product {
+public class Product {
     private String id;
     private String name;
     private double price;
@@ -25,5 +25,9 @@ class Product {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

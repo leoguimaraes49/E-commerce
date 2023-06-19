@@ -1,26 +1,29 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
-class SaleManager {
-    private ProductManager productManager;
-    private ShoppingCart shoppingCart;
-    private Connection connection;
+public class SaleManager {
+    private final ShoppingCart shoppingCart;
+    private final Connection connection;
 
-    public SaleManager(ProductManager productManager, ShoppingCart shoppingCart, Connection connection) {
-        this.productManager = productManager;
+    public SaleManager(ShoppingCart shoppingCart, Connection connection) {
         this.shoppingCart = shoppingCart;
         this.connection = connection;
     }
 
-    public boolean confirmSale() throws SQLException {
-        String sql = "UPDATE products SET quantity = quantity - 1 WHERE id = ?";
-        for (Product product : shoppingCart.getProducts()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, product.getId());
-            statement.executeUpdate();
+    public void confirmSale() throws SQLException {
+        String query = "UPDATE products SET quantity = quantity - ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+        for (Map.Entry<Product, Integer> entry : shoppingCart.getCart().entrySet()) {
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            preparedStatement.setInt(1, quantity);
+            preparedStatement.setString(2, product.getId());
+            preparedStatement.executeUpdate();
         }
-        return true;
+
+        shoppingCart.clearCart();
     }
 }

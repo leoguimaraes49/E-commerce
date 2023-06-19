@@ -1,41 +1,62 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-
-class ProductManager {
+public class ProductManager {
     private Connection connection;
 
     public ProductManager(Connection connection) {
         this.connection = connection;
     }
 
-    public void addProduct(Product product) throws SQLException {
+    public void addProduct(Product product) {
         String sql = "INSERT INTO products (id, name, price, quantity) VALUES (?, ?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, product.getId());
-        statement.setString(2, product.getName());
-        statement.setDouble(3, product.getPrice());
-        statement.setInt(4, product.getQuantity());
-        statement.executeUpdate();
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, product.getId());
+            stmt.setString(2, product.getName());
+            stmt.setDouble(3, product.getPrice());
+            stmt.setInt(4, product.getQuantity());
+            stmt.executeUpdate();
+            System.out.println("Product added successfully.");
+        } catch (SQLException e) {
+            System.out.println("Error adding product: " + e.getMessage());
+        }
     }
 
-    public void deleteProduct(String id) throws SQLException {
-        String sql = "DELETE FROM products WHERE id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, id);
-        statement.executeUpdate();
-    }
-
-    public Product getProductById(String id) throws SQLException {
+    public Product getProduct(String productId) {
         String sql = "SELECT * FROM products WHERE id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, id);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            return new Product(resultSet.getString("id"), resultSet.getString("name"), resultSet.getDouble("price"), resultSet.getInt("quantity"));
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, productId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                double price = rs.getDouble("price");
+                int quantity = rs.getInt("quantity");
+                return new Product(id, name, price, quantity);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving product: " + e.getMessage());
         }
         return null;
+    }
+
+    public void showProducts() {
+        String sql = "SELECT * FROM products";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                double price = rs.getDouble("price");
+                int quantity = rs.getInt("quantity");
+
+                System.out.println("Product ID: " + id + ", Name: " + name + ", Price: " + price + ", Quantity in Stock: " + quantity);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error displaying products: " + e.getMessage());
+        }
     }
 }
