@@ -28,16 +28,17 @@ As credenciais de login do banco de dados são necessárias para estabelecer uma
 3. Troque o "user" pelo nome de usuário do seu banco de dados e o "password" pela sua senha.
 4. Salve as alterações no arquivo `Main.java`.
 
-#Certifique-se de ter as dependências JDBC do MySQL configuradas no projeto.
+# Certifique-se de ter as dependências JDBC do MySQL configuradas no projeto.
 Caso não tenha: 
  1. Acesse o site do MySQL Connector/J: https://dev.mysql.com/downloads/connector/j/
- 2.Na página de downloads, role para baixo até encontrar a seção "Generally Available (GA) Releases". Lá, você encontrará várias versões disponíveis para download.
- 3. Selecione a versão mais recente do MySQL Connector/J que seja compatível com sua versão do MySQL Server.
- 4. Escolha a opção de download adequada para o seu sistema operacional. Por exemplo, se você estiver usando o Windows, escolha o arquivo JAR com um nome como mysql-connector-java-{version}.jar.
- 5.Após o download, copie o arquivo JAR para o diretório do seu projeto Java.
- 6.Em sua IDE Java, adicione o arquivo JAR ao classpath do projeto. Isso pode ser feito de diferentes maneiras, dependendo da IDE que você está usando. Aqui estão algumas instruções gerais para algumas IDEs populares:
- 7.Eclipse: No Eclipse, clique com o botão direito do mouse no projeto, vá para "Build Path" e selecione "Configure Build Path". Na guia "Libraries", clique em "Add External JARs" e navegue até o arquivo JAR do Connector/J que você baixou.
- 8.IntelliJ IDEA: No IntelliJ IDEA, clique com o botão direito do mouse no arquivo JAR, selecione "Add as Library" e escolha a opção apropriada para o seu projeto.
+ 2. Na página de downloads, role para baixo até encontrar a seção "Generally Available (GA) Releases". Lá, você encontrará várias versões disponíveis para download.
+ 3. Na página de downloads, role para baixo até encontrar a seção "Generally Available (GA) Releases". Lá, você encontrará várias versões disponíveis para download.
+ 4. Selecione a versão mais recente do MySQL Connector/J que seja compatível com sua versão do MySQL Server.
+ 5. Escolha a opção de download adequada para o seu sistema operacional. Por exemplo, se você estiver usando o Windows, escolha o arquivo JAR com um nome como mysql-connector-java-{version}.jar.
+ 6. Após o download, copie o arquivo JAR para o diretório do seu projeto Java.
+ 7. Em sua IDE Java, adicione o arquivo JAR ao classpath do projeto. Isso pode ser feito de diferentes maneiras, dependendo da IDE que você está usando. Aqui estão algumas instruções gerais para algumas IDEs populares:
+ 8. Eclipse: No Eclipse, clique com o botão direito do mouse no projeto, vá para "Build Path" e selecione "Configure Build Path". Na guia "Libraries", clique em "Add External JARs" e navegue até o arquivo JAR do Connector/J que você baixou.
+ 9. IntelliJ IDEA: No IntelliJ IDEA, clique com o botão direito do mouse no arquivo JAR, selecione "Add as Library" e escolha a opção apropriada para o seu projeto.
   Certifique-se de que o servidor MySQL esteja em execução e atualize as informações de conexão no código-fonte, se necessário.
 
 
