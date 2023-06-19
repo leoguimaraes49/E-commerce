@@ -11,7 +11,6 @@ public class Main {
             ProductManager productManager = new ProductManager(connection);
             ShoppingCart shoppingCart = new ShoppingCart();
             SaleManager saleManager = new SaleManager(shoppingCart, connection);
-
             Scanner scanner = new Scanner(System.in);
             boolean run = true;
 
