@@ -10,10 +10,10 @@ public class ProductManager {
     public void addProduct(Product product) {
         String sql = "INSERT INTO products (id, name, price, quantity) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, product.getId());
-            stmt.setString(2, product.getName());
-            stmt.setDouble(3, product.getPrice());
-            stmt.setInt(4, product.getQuantity());
+            stmt.setString(1, product.id ());
+            stmt.setString(2, product.name ());
+            stmt.setDouble(3, product.price ());
+            stmt.setInt(4, product.quantity ());
             stmt.executeUpdate();
             System.out.println("Product added successfully.");
         } catch (SQLException e) {

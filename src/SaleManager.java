@@ -20,7 +20,7 @@ public class SaleManager {
             Product product = entry.getKey();
             int quantity = entry.getValue();
             preparedStatement.setInt(1, quantity);
-            preparedStatement.setString(2, product.getId());
+            preparedStatement.setString(2, product.id ());
             preparedStatement.executeUpdate();
         }
 

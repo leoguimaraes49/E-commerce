@@ -33,7 +33,7 @@ public class ShoppingCart {
         for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
-            total += product.getPrice() * quantity;
+            total += product.price () * quantity;
         }
         return total;
     }
@@ -41,7 +41,7 @@ public class ShoppingCart {
 
     public void showCart() {
         for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
-            System.out.println("Product ID: " + entry.getKey().getId() + ", Quantity: " + entry.getValue());
+            System.out.println("Product ID: " + entry.getKey().id () + ", Quantity: " + entry.getValue());
         }
     }
 
