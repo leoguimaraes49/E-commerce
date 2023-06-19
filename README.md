@@ -11,7 +11,7 @@ Este é um projeto de exemplo de um sistema básico de comércio eletrônico des
 
 1. Crie um banco de dados chamado `ecommerce_db` no MySQL.
 2. Execute o seguinte script SQL para criar a tabela de produtos:
-
+'''
 CREATE TABLE products (
 
     id VARCHAR(20) PRIMARY KEY,
@@ -22,7 +22,7 @@ CREATE TABLE products (
     
     quantity INT NOT NULL
 );
-
+'''
 Certifique-se de ter o servidor MySQL em execução e atualize as informações de conexão no código-fonte, se necessário.
 
 ## Configurando as Credenciais de Login do Banco de Dados
