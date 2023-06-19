@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_db", "root", "leo123");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_db", "user", "password");
 
             ProductManager productManager = new ProductManager(connection);
             ShoppingCart shoppingCart = new ShoppingCart();
